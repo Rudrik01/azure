@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEB File Decryption- Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/result.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>URLs Found in the XML</h1>
+        {% if urls %}
+        <ul>
+            {% for url in urls %}
+            <li>{{ url }}</li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>No URLs found in the XML.</p>
+        {% endif %}
+        <a href="/">Back to Upload</a>
+    </div>
+</body>
+</html>
