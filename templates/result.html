@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SEB File Decryption- Result</title>
+    <title>SEB File Decryption - Result</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/result.css') }}">
 </head>
 <body>
@@ -18,6 +18,26 @@
         {% else %}
         <p>No URLs found in the XML.</p>
         {% endif %}
+        
+        {% if hashed_passwords %}
+        <h2>Hashed Passwords Found</h2>
+        <ul>
+            {% for key, password in hashed_passwords.items() %}
+            <li>{{ key }}: {{ password }}</li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>No hashed passwords found in the XML.</p>
+        {% endif %}
+
+        <br>
+
+        <!-- Download Button -->
+        <a href="{{ url_for('download_file') }}" download>
+            <button>Download Decrypted File</button>
+        </a>
+
+        <br><br>
         <a href="/">Back to Upload</a>
     </div>
 </body>
